@@ -1,0 +1,5 @@
+This print was done by the testcase, before the function was called.
+The function str_mult() has been called.  For this activity, we won't print out any details about its parameters.
+This print was done by the testcase, after the function was called.
+
+The function returned: 'Example line here.Example line here.Example line here.Example line here.Example line here.Example line here.Example line here.'
