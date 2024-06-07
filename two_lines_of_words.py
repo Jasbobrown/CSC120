@@ -1,0 +1,12 @@
+a, b = input().split(), input().split()
+print(f"The first line was: {a}")
+print(f"The second line was: {b}")
+print()
+print(f"The combination of both lines had {len(a + b)} words.")
+print(f"The combined set of words was: {a + b}")
+print()
+print(f"After sorting, the words were: {sorted(a + b)}")
+print()
+print("Pairs:")
+for i in range((min(len(a), len(b)))):
+    print(f"{i}: {a[i]},{b[i]}")
