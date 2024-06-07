@@ -1,0 +1,4 @@
+Rolled a 14, I will add the value to the running sum.
+  Sum so far: 14
+Rolled a 1, the loop will now terminate.
+random_rolls() returned: 14

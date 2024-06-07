@@ -1,0 +1,13 @@
+Rolled a 19, I will add the value to the running sum.
+  Sum so far: 19
+Rolled a 2, I will add the value to the running sum.
+  Sum so far: 21
+Rolled a 14, I will add the value to the running sum.
+  Sum so far: 35
+Rolled a 16, I will add the value to the running sum.
+  Sum so far: 51
+Rolled a 19, I will add the value to the running sum.
+  Sum so far: 70
+Rolled a 1, the loop will now terminate.
+
+70

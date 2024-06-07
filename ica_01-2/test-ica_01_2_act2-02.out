@@ -1,0 +1,12 @@
+Rolled a 14, I will add the value to the running sum.
+  Sum so far: 14
+Rolled a 13, I will add the value to the running sum.
+  Sum so far: 27
+Rolled a 12, I will add the value to the running sum.
+  Sum so far: 39
+Rolled a 9, I will add the value to the running sum.
+  Sum so far: 48
+Rolled a 15, I will add the value to the running sum.
+  Sum so far: 63
+Rolled a 1, the loop will now terminate.
+The return value from random_rolls() was: 63
