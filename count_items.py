@@ -18,7 +18,7 @@ def main():
     print("STEP 2: A LIST OF VALUE->KEY TUPLES")
     for k in sorted(D.keys()):
         L.append((D[k], k))
-        print(L)
+    print(L)
     
     print("STEP 3: AFTER SORTING")
     print(sorted(L))
