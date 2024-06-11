@@ -1,4 +1,4 @@
-def something():
+def main():
     x = input("input string: ")
     print(len(x))
     print(x[1])
@@ -15,6 +15,7 @@ def something():
         print("DIGIT")
     else:
         print("OTHER")
-        
+
     y, z = input(), input()
     print(int(y) * int(z))
+main()
