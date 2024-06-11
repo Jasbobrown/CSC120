@@ -4,6 +4,5 @@ def main():
     if len(x) % 2 == 0:
         print(x[len(x)/2:] + x[:len(x)/2])
     print(x[(len(x)//2) + 2:] + x[(len(x)//2) + 1] + x[:len(x)//2])
-
 main()
 
