@@ -12,7 +12,7 @@ def main():
                 multiWord += 1 
 
         if multiWord:
-            state = " ".join(line.split(' ')[:multiWord + 1])
+            state = " ".join(line.split()[:multiWord + 1])
             pop = line.split()[-1]
             states.append(state)
             population += int(pop)
