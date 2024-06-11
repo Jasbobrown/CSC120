@@ -24,7 +24,7 @@ def main():
     print(sorted(L))
 
     print("STEP 4: THE ACTUAL OUTPUT")
-    for i in L:
+    for i in sorted(L):
         print(f"{i[0]} {i[1]}")
 
 main()
