@@ -2,8 +2,8 @@ def main():
     x = input("input string: ")
     print(len(x))
     print(x[1])
-    print(x[:9])
-    print(x[:-5])
+    print(x[:10])
+    print(x[-5:])
     print(x.upper())
     if x[0].lower() in 'qwerty':
         print("QWERTY")
