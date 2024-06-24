@@ -1,6 +1,4 @@
-import list_node
-
-new = ListNode("abc123")
+from list_node import ListNode
 
 def is_sorted():
     pass
