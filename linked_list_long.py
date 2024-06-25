@@ -21,8 +21,7 @@ def list_sum(head):
     while cur.next != None:
         sum += cur.val
         cur = cur.next
-    return sum
-
+    return sum + cur.val
 
 def partition_list():
     pass
