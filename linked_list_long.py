@@ -23,8 +23,17 @@ def list_sum(head):
         cur = cur.next
     return sum + cur.val
 
-def partition_list():
-    pass
+def partition_list(head):
+    cur = head
+    cur2 = head.next
+    if not cur or cur.next:
+        return
+    while cur.next != None:
+        cur.next = cur.next.next
+        cur2.next = cur2.next.next
+        cur = cur.next
+    return cur, cur2
+
 
 def accordion_3():
     pass
