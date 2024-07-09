@@ -8,6 +8,3 @@ def annoying_fibonacci_sequence(n):
     out = annoying_fibonacci_sequence(n-1)
     out.append(out[-1] + out[-2])
     return out
-
-
-print(annoying_fibonacci_sequence(6))
