@@ -33,7 +33,7 @@ def accordion_recursive(head):
     if not head or not head.next:
         return None
     head = head.next
-    head.next = accordian_recursive(head.next)
+    head.next = accordion_recursive(head.next)
     return head
 
 def pair_recursive(head1, head2):
