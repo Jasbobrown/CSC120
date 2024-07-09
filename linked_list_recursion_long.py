@@ -1,4 +1,4 @@
-from list_node import ListNode #e
+from list_node import ListNode
 
 def array_to_list_recursive(data):
     if not data:
