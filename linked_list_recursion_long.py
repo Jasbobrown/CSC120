@@ -29,7 +29,7 @@ def array_to_list_recursive(data):
     out.next = array_to_list_recursive(data[1:])
     return out
 
-def accordian_recursive(head):
+def accordion_recursive(head):
     if not head or not head.next:
         return None
     head = head.next
