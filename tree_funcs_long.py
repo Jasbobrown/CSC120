@@ -12,7 +12,11 @@ def bst_search_loop(root, val):
     return None
 
 def tree_search(root, val):
-    pass
+    if not root:
+        return None
+    if root.val == val:
+        return root
+    
 
 def bst_insert_loop(root, val):
     pass
