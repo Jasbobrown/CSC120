@@ -1,4 +1,4 @@
-from list_node import ListNode
+from tree_node import TreeNode
 
 def bst_search_loop(root, val):
     cur = root
