@@ -16,10 +16,10 @@ def tree_search(root, val):
         return None
     if root.val == val:
         return root
-    for i in root.children:
-        out = tree_search(i, val)
-        if out is not None:
-            return out
+    if root.left:
+        return tree_search(root.left, val)
+    if root.right:
+        return tree_search(root.right, val)
     return None
     
 
