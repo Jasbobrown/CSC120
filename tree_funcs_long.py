@@ -18,7 +18,7 @@ def tree_search(root, val):
         return root
     if root.left:
         return tree_search(root.left, val)
-    if root.right:
+    elif root.right:
         return tree_search(root.right, val)
     return None
     
