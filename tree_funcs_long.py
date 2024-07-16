@@ -16,10 +16,11 @@ def tree_search(root, val):
         return None
     if root.val == val:
         return root
-    if root.left:
-        return tree_search(root.left, val)
-    elif root.right:
-        return tree_search(root.right, val)
+    L, R = tree_search(root.left, val), tree_search(root.right, val)
+    if L is not None:
+        return L
+    elif R is not None:
+        return R
     return None
     
 
