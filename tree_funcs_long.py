@@ -16,7 +16,10 @@ def tree_search(root, val):
         return None
     if root.val == val:
         return root
-    return tree_search(root.left, val) if not None else tree_search(root.right, val)
+    L = tree_search(root.left, val)
+    if L:
+        return L
+    return tree_search(root.right, val)
     
 
 def bst_insert_loop(root, val):
