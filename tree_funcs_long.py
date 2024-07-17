@@ -59,7 +59,13 @@ def post_order_traversal_print(root):
     print(root.val)
 
 def in_order_vals(root):
-    pass
+    out = []
+    if not root:
+        return
+    out.append(in_order_vals(root.left))
+    out.append(root.val)
+    out.append(in_order_vals(root.right))
+    return out
 
 def bst_max(root):
     pass
