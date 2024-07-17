@@ -1,5 +1,6 @@
 from tree_node import TreeNode
 
+
 def bst_search_loop(root, val):
     cur = root
     while cur:
@@ -10,6 +11,7 @@ def bst_search_loop(root, val):
         else:
             cur = cur.right
     return None
+
 
 def tree_search(root, val):
     if not root:
@@ -44,12 +46,14 @@ def pre_order_traversal_print(root):
     pre_order_traversal_print(root.left)
     pre_order_traversal_print(root.right)
 
+
 def in_order_traversal_print(root):
     if not root:
         return
     in_order_traversal_print(root.left)
     print(root.val)
     in_order_traversal_print(root.right)
+
 
 def post_order_traversal_print(root):
     if not root:
@@ -58,14 +62,19 @@ def post_order_traversal_print(root):
     post_order_traversal_print(root.right)
     print(root.val)
 
+
 def in_order_vals(root):
-    out = []
-    if not root:
-        return
-    out.append(in_order_vals(root.left))
-    out.append(root.val)
-    out.append(in_order_vals(root.right))
+    out, stack = [], []
+    cur = root
+    while cur or stack:
+        while cur:
+            stack.append(cur)
+            cur = cur.left
+        cur = stack.pop()
+        out.append(cur.val)
+        cur = cur.right
     return out
+
 
 def bst_max(root):
     pass
