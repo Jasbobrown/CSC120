@@ -47,15 +47,15 @@ def pre_order_traversal_print(root):
 def in_order_traversal_print(root):
     if not root:
         return
-    pre_order_traversal_print(root.left)
+    in_order_traversal_print(root.left)
     print(root.val)
-    pre_order_traversal_print(root.right)
+    in_order_traversal_print(root.right)
 
 def post_order_traversal_print(root):
     if not root:
         return
-    pre_order_traversal_print(root.left)
-    pre_order_traversal_print(root.right)
+    post_order_traversal_print(root.left)
+    post_order_traversal_print(root.right)
     print(root.val)
 
 def in_order_vals(root):
