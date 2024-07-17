@@ -96,4 +96,3 @@ def tree_max(root):
         if node.right:
             stack.append(node.right)
     return max_val
-
