@@ -23,7 +23,19 @@ def tree_search(root, val):
     
 
 def bst_insert_loop(root, val):
-    pass
+    cur = root
+    while True:
+        if val < cur.val:
+            if not cur.left:
+                cur.left = TreeNode(val)
+                break
+            cur = cur.left
+        else:
+            if not cur.right:
+                cur.right = TreeNode(val)
+                break
+            cur = cur.right
+
 
 def pre_order_traversal_print(root):
     pass
