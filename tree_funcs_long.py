@@ -77,7 +77,11 @@ def in_order_vals(root):
 
 
 def bst_max(root):
-    pass
+    if not root:
+        return
+    if not root.right:
+        return root.val
+    return bst_max(root.right)
 
 def tree_max(root):
     pass
