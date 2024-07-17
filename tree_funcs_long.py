@@ -83,6 +83,17 @@ def bst_max(root):
         return root.val
     return bst_max(root.right)
 
+
 def tree_max(root):
-    pass
+    stack = [root]
+    max_val = root.val
+    while stack:
+        node = stack.pop()
+        if node.val > max_val:
+            max_val = node.val
+        if node.left:
+            stack.append(node.left)
+        if node.right:
+            stack.append(node.right)
+    return max_val
 
