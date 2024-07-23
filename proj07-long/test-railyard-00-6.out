@@ -1,0 +1,54 @@
+Please give the yard file:
+1: -ebcddT-
+2: -beabebaT-
+3: --eceeddcce-
+4: ------eccdabT-
+5: ----------cdbbb-
+6: ---------baacedcT-
+7: ----------------dbb-
+8: --------------aacdecT-
+Locomotive count:  5
+Destination count: 5
+
+What is your next command?
+
+DEBUG OUTPUT:
+Track #0
+  Length:   6
+  Contents: ['T', 'd', 'd', 'c', 'b', 'e']
+Track #1
+  Length:   8
+  Contents: ['T', 'a', 'b', 'e', 'b', 'a', 'e', 'b']
+Track #2
+  Length:   10
+  Contents: ['e', 'c', 'c', 'd', 'd', 'e', 'e', 'c', 'e']
+Track #3
+  Length:   12
+  Contents: ['T', 'b', 'a', 'd', 'c', 'c', 'e']
+Track #4
+  Length:   14
+  Contents: ['b', 'b', 'b', 'd', 'c']
+Track #5
+  Length:   16
+  Contents: ['T', 'c', 'd', 'e', 'c', 'a', 'a', 'b']
+Track #6
+  Length:   18
+  Contents: ['b', 'b', 'd']
+Track #7
+  Length:   20
+  Contents: ['T', 'c', 'e', 'd', 'c', 'a', 'a']
+
+1: -ebcddT-
+2: -beabebaT-
+3: --eceeddcce-
+4: ------eccdabT-
+5: ----------cdbbb-
+6: ---------baacedcT-
+7: ----------------dbb-
+8: --------------aacdecT-
+Locomotive count:  5
+Destination count: 5
+
+What is your next command?
+
+Quitting!

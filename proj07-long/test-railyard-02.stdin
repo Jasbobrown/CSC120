@@ -1,0 +1,8 @@
+yard1.txt
+dump
+move  1 2 5
+move  0 1 2
+move  1 2 5
+move  0 3 2
+dump
+move  1 2 5

@@ -1,0 +1,78 @@
+Please give the yard file:
+1: --------------------T-
+2: -----------cbbbbaaaaT-
+3: -----------aaabbbbbbT-
+4: ----------------------
+5: ----------------------
+Locomotive count:  3
+Destination count: 3
+
+What is your next command?
+
+DEBUG OUTPUT:
+Track #0
+  Length:   20
+  Contents: ['T']
+Track #1
+  Length:   20
+  Contents: ['T', 'a', 'a', 'a', 'a', 'b', 'b', 'b', 'b', 'c']
+Track #2
+  Length:   20
+  Contents: ['T', 'b', 'b', 'b', 'b', 'b', 'b', 'a', 'a', 'a']
+Track #3
+  Length:   20
+  Contents: []
+Track #4
+  Length:   20
+  Contents: []
+
+1: --------------------T-
+2: -----------cbbbbaaaaT-
+3: -----------aaabbbbbbT-
+4: ----------------------
+5: ----------------------
+Locomotive count:  3
+Destination count: 3
+
+What is your next command?
+
+The locomotive on track 1 moved 0 cars to track 4.
+
+1: ----------------------
+2: -----------cbbbbaaaaT-
+3: -----------aaabbbbbbT-
+4: --------------------T-
+5: ----------------------
+Locomotive count:  3
+Destination count: 3
+
+What is your next command?
+
+DEBUG OUTPUT:
+Track #0
+  Length:   20
+  Contents: []
+Track #1
+  Length:   20
+  Contents: ['T', 'a', 'a', 'a', 'a', 'b', 'b', 'b', 'b', 'c']
+Track #2
+  Length:   20
+  Contents: ['T', 'b', 'b', 'b', 'b', 'b', 'b', 'a', 'a', 'a']
+Track #3
+  Length:   20
+  Contents: ['T']
+Track #4
+  Length:   20
+  Contents: []
+
+1: ----------------------
+2: -----------cbbbbaaaaT-
+3: -----------aaabbbbbbT-
+4: --------------------T-
+5: ----------------------
+Locomotive count:  3
+Destination count: 3
+
+What is your next command?
+
+Quitting!

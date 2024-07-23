@@ -1,0 +1,44 @@
+Please give the yard file:
+1: --------------------ddaccd-
+2: -------------------cbcbbaT-
+3: ---------------------aeeeT-
+4: ----------------------cddT-
+5: -----------------------deT-
+6: -----------------------ceT-
+Locomotive count:  5
+Destination count: 5
+
+What is your next command?
+
+DEBUG OUTPUT:
+Track #0
+  Length:   25
+  Contents: ['d', 'c', 'c', 'a', 'd', 'd']
+Track #1
+  Length:   25
+  Contents: ['T', 'a', 'b', 'b', 'c', 'b', 'c']
+Track #2
+  Length:   25
+  Contents: ['T', 'e', 'e', 'e', 'a']
+Track #3
+  Length:   25
+  Contents: ['T', 'd', 'd', 'c']
+Track #4
+  Length:   25
+  Contents: ['T', 'e', 'd']
+Track #5
+  Length:   25
+  Contents: ['T', 'e', 'c']
+
+1: --------------------ddaccd-
+2: -------------------cbcbbaT-
+3: ---------------------aeeeT-
+4: ----------------------cddT-
+5: -----------------------deT-
+6: -----------------------ceT-
+Locomotive count:  5
+Destination count: 5
+
+What is your next command?
+
+Quitting!
