@@ -8,114 +8,105 @@
 # if move empty, move only the locomotive
 # syntax: move 0 1 2 (move 0 cars (locomotive only) from track 1 to 2)
 
+# File path: railyard.py
 
-
-
-class Railyard:
-    def __init__(self, yard_file):
-        self.tracks = self.load_yard(yard_file)
-        self.locomotive_count = self.count_locomotives()
-        self.destination_count = self.count_destinations()
-
-    def load_yard(self, yard_file):
-        tracks = []
-        f = open(yard_file, 'r')
-        for line in f:
-            tracks.append(line.strip())
+def read_yard_file(file_name):
+    try:
+        with open(file_name, 'r') as file:
+            tracks = [line.strip() for line in file.readlines()]
         return tracks
+    except FileNotFoundError:
+        print(f"Error: The yard file '{file_name}' doesn't exist.")
+        exit(1)
 
-    def count_locomotives(self):
-        count = 0
-        for track in self.tracks:
-            if 'T' in track:
-                count += 1
-        return count
+def initialize_yard(tracks):
+    yard = []
+    for track in tracks:
+        content = list(track.strip('-'))
+        yard.append(content[::-1])  # reverse to make the locomotive at index 0
+    return yard
 
-    def count_destinations(self):
-        destinations = set()
-        for track in self.tracks:
-            for car in track:
-                if car.islower():
-                    destinations.add(car)
-        return len(destinations)
+def print_yard(yard):
+    for i, track in enumerate(yard):
+        track_str = ''.join(track[::-1])  # reverse back for display
+        print(f"{i + 1}: {track_str}")
+    print(f"Locomotive count: {sum(1 for track in yard if 'T' in track)}")
+    print(f"Destination count: {len(set(car for track in yard for car in track if car.islower()))}")
 
-    def display_yard(self):
-        for i in range(len(self.tracks)):
-            print(f"{i + 1}: {self.tracks[i]}")
-        print(f"Locomotive count: {self.locomotive_count}")
-        print(f"Destination count: {self.destination_count}")
+def handle_move_command(yard, count, from_track, to_track):
+    from_track -= 1
+    to_track -= 1
+    count = int(count)
+    
+    if from_track == to_track:
+        print("Error: The to-track and from-track are the same.")
+        return
+    if count < 0:
+        print("Error: The user asks to move a negative number of cars.")
+        return
+    if not yard[from_track] or 'T' not in yard[from_track]:
+        print("Error: The from-track is empty, or doesn’t have a locomotive.")
+        return
+    if yard[to_track] and 'T' in yard[to_track]:
+        print("Error: The to-track already has a locomotive.")
+        return
+    if len(yard[from_track]) < count + 1:  # +1 for the locomotive
+        print("Error: The from-track doesn’t have enough cars to satisfy the required move.")
+        return
+    if len(yard[to_track]) + count + 1 > len(yard[to_track]) + len('-'):
+        print("Error: The to-track doesn’t have enough space to hold the moved cars (including the locomotive).")
+        return
 
-    def move(self, count, from_track, to_track):
-        from_idx = from_track - 1
-        to_idx = to_track - 1
+    # Perform the move
+    moving_cars = yard[from_track][:count + 1]
+    yard[from_track] = yard[from_track][count + 1:]
+    yard[to_track] = moving_cars + yard[to_track]
 
-        if not (0 <= from_idx < len(self.tracks)) or not (0 <= to_idx < len(self.tracks)):
-            print("Error: Track number out of range.")
-            return
+    print(f"The locomotive on track {from_track + 1} moved {count} cars to track {to_track + 1}.")
 
-        if 'T' not in self.tracks[from_idx]:
-            print("Error: From track does not have a locomotive.")
-            return
+    check_and_depart(yard)
 
-        if 'T' in self.tracks[to_idx]:
-            print("Error: To track already has a locomotive.")
-            return
+def check_and_depart(yard):
+    for i, track in enumerate(yard):
+        if 'T' in track and len(set(car for car in track if car.islower())) == 1:
+            destination = track[1] if len(track) > 1 else ''
+            print(f"*** ALERT*** The train on track {i + 1}, which had {len(track) - 1} cars, departs for destination {destination}.")
+            yard[i] = []
 
-        from_track_len = len(self.tracks[from_idx])
-        if count < 0 or count > from_track_len:
-            print("Error: Invalid number of cars to move.")
-            return
+def handle_dump_command(yard):
+    print("DEBUG OUTPUT:")
+    for i, track in enumerate(yard):
+        print(f"Track #{i}")
+        print(f"Length: {len(track) + len('-')}")
+        print(f"Contents: {track[::-1]}")
 
-        move_cars = self.tracks[from_idx][-count:] if count > 0 else ""
-        self.tracks[to_idx] = self.tracks[to_idx][:-1] + move_cars + 'T'
-        self.tracks[from_idx] = self.tracks[from_idx][:-count-1] + '-'
+def main():
+    yard_file = input("Enter the name of the yard file: ")
+    tracks = read_yard_file(yard_file)
+    yard = initialize_yard(tracks)
 
-        self.handle_departure(to_idx)
+    while True:
+        print_yard(yard)
+        command = input("What is your next command? ").strip().split()
 
-    def handle_departure(self, track_idx):
-        track = self.tracks[track_idx]
-        if 'T' in track:
-            cars = track[:-1].strip('-')
-            if len(set(cars)) == 1:
-                print(f"*** ALERT*** The train on track {track_idx + 1}, which had {len(cars)} cars, departs for destination {cars[0]}.")
-                self.tracks[track_idx] = '-' * len(track)
-                self.locomotive_count -= 1
-
-    def dump(self):
-        print("DEBUG OUTPUT:")
-        for i in range(len(self.tracks)):
-            print(f"Track #{i}")
-            print(f"Length: {len(self.tracks[i])}")
-            print(f"Contents: {list(self.tracks[i])}")
-
-    def run(self):
-        while self.locomotive_count > 0:
-            self.display_yard()
-            command = input("What is your next command? ").strip().split()
-            if len(command) == 0:
-                print("Error: Invalid command.")
+        if not command:
+            print("Error: The command name is not valid.")
+            continue
+        
+        action = command[0]
+        
+        if action == 'move':
+            if len(command) != 4 or not command[1].isdigit() or not command[2].isdigit() or not command[3].isdigit():
+                print("Error: The user didn’t provide the right number of arguments for the move command or one of the parameters was not an integer.")
                 continue
-            cmd = command[0]
-            if cmd == 'move':
-                if len(command) != 4:
-                    print("Error: Invalid number of arguments for move.")
-                    continue
-                try:
-                    count = int(command[1])
-                    from_track = int(command[2])
-                    to_track = int(command[3])
-                    self.move(count, from_track, to_track)
-                except ValueError:
-                    print("Error: Move arguments must be integers.")
-            elif cmd == 'dump':
-                self.dump()
-            elif cmd == 'quit':
-                print("Quitting!")
-                break
-            else:
-                print("Error: Invalid command.")
+            handle_move_command(yard, command[1], int(command[2]), int(command[3]))
+        elif action == 'dump':
+            handle_dump_command(yard)
+        elif action == 'quit':
+            print("Quitting!")
+            break
+        else:
+            print("Error: The command name is not valid.")
 
-if __name__ == '__main__':
-    yard_file = input("Enter the yard file name: ").strip()
-    railyard = Railyard(yard_file)
-    railyard.run()
+if __name__ == "__main__":
+    main()
