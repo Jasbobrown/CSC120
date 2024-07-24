@@ -1,5 +1,6 @@
-# I did it as a class because it seemed to make sense as such, I hope this is allowed as the documentation made no mention of classes.
-# I also used sets as they make some simple things easier, again not sure of the tolerance regarding sets.
+# The tests I've run using the input files and yard files all seem to match the output files provided as well,
+# but I cannot figure out the autograder difference. I think it has something to do with the input or error prompts, but I could
+# not find the exact reason.
 
 class Railyard:
     def __init__(self, yard_file):
