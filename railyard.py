@@ -112,7 +112,7 @@ class Railyard:
     def run(self):
         self.print_yard()
         while self.locomotive_count > 0:
-            command = input("What is your next command? ").strip().lower()
+            command = input("What is your next command?\n").strip().lower()
             if command == "quit":
                 print("Quitting!")
                 break
