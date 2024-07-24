@@ -41,6 +41,15 @@ class Railyard:
         print(f"Locomotive count: {self.locomotive_count}")
         print(f"Destination count: {self.destination_count}")
 
+    def dump(self):
+        print("DEBUG OUTPUT:")
+        i = 1
+        for track in self.tracks:
+            length = len(track)
+            contents = [car for car in track if car != '-']
+            print(f"Track #{i}\nLength: {length}\nContents: {contents}")
+            i += 1
+
     def move_cars(self, count, from_track, to_track):
         from_track -= 1
         to_track -= 1
