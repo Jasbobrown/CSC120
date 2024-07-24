@@ -122,6 +122,6 @@ class Railyard:
             self.print_yard()
 
 if __name__ == "__main__":
-    yard_file = input("Please give the name of the yard file: ").strip()
+    yard_file = input("Please give the yard file:\n").strip()
     railyard = Railyard(yard_file)
     railyard.run()
